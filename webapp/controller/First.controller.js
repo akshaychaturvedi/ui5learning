@@ -1,34 +1,29 @@
 sap.ui.define([
-    'sap/ui/core/mvc/Controller',
-    'sap/m/MessageToast',
-    'sap/ui/model/json/JSONModel'
-], function(Controller, MessageToast, JSONModel) {
+    'sap/ui/core/mvc/Controller'
+], function(Controller) {
     'use strict';
     return Controller.extend("app.controller.First", {
-        handleNavigate: function() {
-            MessageToast.show("Navigating..")
-            this.byId("app").to(this.byId("secondPage"))
+        // Event Handler
+        onLiveChange: function(oEvent) {
+            var sText = oEvent.getParameter("value")
+            console.log(sText)
+            var secondTextArea = this.byId("textArea2")
+            // Methods
+            secondTextArea.setValue(sText)
+            secondTextArea.setWidth("50%")
         },
+        // Lifecycle Methods
         onInit: function() {
-            var oModel = new JSONModel({
-                data: [{
-                    "name": "Nell"
-                }, {
-                    "name": "Valerye"
-                }, {
-                    "name": "Nevile"
-                }, {
-                    "name": "Nataniel"
-                }, {
-                    "name": "Yvor"
-                }]
-            })
-            this.getView().setModel(oModel)
 
         },
-        onChange: function(oEvent) {
-            var switchState = oEvent.getParameter("state")
-            this.byId("flexBox").setVisible(switchState)
+        onBeforeRendering: function() {
+
+        },
+        onAfterRendering: function() {
+
+        },
+        onExit: function() {
+
         }
     })
 
