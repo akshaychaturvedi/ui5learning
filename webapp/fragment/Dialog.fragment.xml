@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Dialog title="Dialog" class="sapUiResponsiveContentPadding">
+        <Text text="This is a message from dialog" textAlign="Center"/>
+        <endButton>
+            <Button text="Close" press=".onCloseDialog"></Button>
+        </endButton>
+    </Dialog>
+
+</core:FragmentDefinition>
